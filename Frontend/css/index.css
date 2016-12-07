@@ -1,0 +1,79 @@
+.results {
+	width: 70%;
+
+}
+
+.col-sm-8 {
+	font-size: 30px;
+
+
+}
+
+.btn-primary {
+	font-size: 20px;
+}
+
+.list-unstyled {
+	font-style: bold;
+
+}
+
+.btn {
+	height: 50px;
+
+}
+
+.btn-group {
+	height: auto;
+}
+
+.arrow {
+	height: 50px;
+	font-style: bold;
+	font-size: 20px;
+}
+
+.panel-title {
+	font-size: 25px;
+}
+
+.form-control {
+	font-size: 25px;
+}
+.container {
+  padding-right: 15px;
+  padding-left: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: white;
+  width: 100%;
+}
+
+
+}
+.panel {
+  padding: 75px 40px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+}
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 25px;
+  color: inherit;
+}
+
+
+/*}
+textarea.input-group-md > .form-control,
+textarea.input-group-md > .input-group-addon,
+textarea.input-group-md > .input-group-btn > .btn,
+select[multiple].input-group-md > .form-control,
+select[multiple].input-group-md > .input-group-addon,
+select[multiple].input-group-md > .input-group-btn > .btn {
+  height: auto;
+}*/

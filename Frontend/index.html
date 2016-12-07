@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VSTDA</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+<!-- Panel 1 Left side goes below here -->
+
+<body>
+<div class="container" ng-controller="PostController as vm">
+    <h1 class="text-center">Todo App!</h1>
+       <div class="row">
+            <div class="col-sm-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Add ToDo Item!</h1>
+                    </div>
+                    <div class="panel-body">
+                        <textarea name="" placeholder="Type todo here!" ng-model="vm.newPost.name" cols="25" rows="2" class="form-control"></textarea>
+                        <select class="arrow" ng-model="vm.newPost.priority" style=" width:100%;">
+                            <option value="" selected disabled>Select Priority Level</option>
+                            <option value="1">High Priority</option>
+                            <option value="2">Medium Priority</option>
+                            <option value="3">Low Priority</option>
+                        </select>
+                        <pre>vm.newPost is currently.. {{vm.newPost | json}}</pre>
+                        <div class="panel-footer clearfix">
+                            <button class="btn btn-primary pull-left" ng-click="vm.addPost()">Add ToDo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Panel 2 Right side goes below here -->
+            <div class="col-sm-8">
+                <div class="btn btn-group" role="group">
+                    <button type="button" class="btn btn-primary" ng-click="vm.sort='priority'">Order by highest priority</button>
+                    <button type="button" class="btn btn-primary" ng-click="vm.sort='-priority'">Order by lowest priority</button>
+                    <button type="button" class="btn btn-primary" ng-click="vm.sort='text'">Order alphabetically</button>
+                </div>
+                <ul class="list-unstyled">
+                    <li class="results" ng-repeat="post in vm.posts | orderBy:vm.sort" ng-class="
+                    { 
+                    
+                        'bg-danger': post.priority==1,
+                        'bg-warning': post.priority==2,
+                        'bg-info': post.priority==3
+                
+                    }  
+                    ">{{post.name}}
+                    <button class="btn btn-xs btn-danger pull-right" ng-click="todoCtrl.deleteTodos(post)">X</button>
+                    </li>
+
+                </ul>
+                <!-- <pre>{{vm.posts | json}}</pre> -->
+            </div>
+            <!-- jQuery -->
+            <script src="//code.jquery.com/jquery.js"></script>
+            <!-- Bootstrap JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+            <script src="bower_components/angular/angular.js"></script>
+            <script src="app/app.module.js"></script>
+            <script src="todo/post.controller.js"></script>
+            <script src="todo/todos.factory.js"></script>
+</body>
+
+</html>
